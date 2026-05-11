@@ -66,14 +66,14 @@ The entire pipeline is launched with a single shell script and was validated on 
 
 ## Technical Approach
 
-The pipeline is built around a clean separation of concerns: map first, plan once, then race. This avoids the chicken-and-egg problem of needing a map to plan and needing to drive to build a map, by using a low-level reactive controller (wall following) that requires no map at all for the first lap.
+The pipeline is built around a clean separation of concerns: map first, plan once, then race. This avoids the problem of needing a map to plan and needing to drive to build a map, by using a reactive controller (wall following) that requires no map at all for the first lap.
 
 The five main components are:
 
 - **Wall Following** — a right-wall PID controller that safely drives the car around any closed track using only LiDAR, with no prior knowledge of the layout. Used exclusively during lap 1 to collect sensor data for SLAM.
-- **SLAM** — `slam_toolbox` builds a 2-D occupancy grid in real time from LiDAR scans. The map is finalized and saved automatically when the lap completes.
+- **SLAM** — CHANGE
 - **Centerline Extraction** — a geometry pipeline that processes the occupancy grid using a Euclidean distance transform and skeletonization to find the track centerline, prunes noise, fits a periodic B-spline, and outputs evenly spaced waypoints with headings.
-- **Particle Filter** — localizes the car on the saved map for all subsequent laps using a Monte Carlo approach over LiDAR scan likelihoods.
+- **Particle Filter** — CHANGE
 - **Pure Pursuit** — a geometric controller that tracks the extracted waypoints by computing the steering angle to a lookahead point on the path, with speed scheduled by curvature.
 
 These components are chained together automatically by `final.sh`, with a ~20 s downtime between the mapping and racing phases for planning and localization to initialize.
@@ -109,8 +109,7 @@ The saved occupancy grid is processed to extract a smooth closed-loop racing tra
 2. Compute the Euclidean distance transform
 3. Threshold a skeleton from ridge points near the corridor center
 4. Build a graph, prune dead-end branches, detect the closed loop
-5. Fit a periodic cubic B-spline and sample uniform waypoints with headings
-6. Convert from pixel to world coordinates using map metadata
+6. Convert from pixel to world coordinates using map yaml
 
 ### Particle Filter
 
