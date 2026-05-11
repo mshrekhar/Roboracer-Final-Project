@@ -1,0 +1,61 @@
+ekf_filter_node:
+  ros__parameters:
+    # 50Hz is the sweet spot for 2 m/s racing; 20Hz is too laggy for Pure Pursuit
+    frequency: 45.0
+    sensor_timeout: 0.1
+    two_d_mode: true
+    publish_tf: true
+    
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # Odom0: LiDAR ICP odometry — immune to wheel slip at high speed
+    odom0: /odom_icp
+    odom0_config: [true, true, false, # x, y, z
+                   false, false, true,  # roll, pitch, yaw ← use ICP heading
+                   true,  false, false, # vx (velocity), vy, vz
+                   false, false, false, # vroll, vpitch, vyaw
+                   false, false, false]
+    odom0_differential: false
+    odom0_relative: false
+
+    # Odom1: VESC wheel odom — bootstrap only, breaks the ICP↔EKF TF deadlock at startup.
+    # Once ICP is running, ICP dominates due to tighter covariance in the ICP messages.
+    odom1: /odom
+    odom1_config: [false, false, false, # x, y, z
+                   false, false, false, # roll, pitch, yaw
+                   true,  false, false, # vx only — don't trust VESC yaw at high speed
+                   false, false, false,
+                   false, false, false]
+    odom1_differential: false
+    odom1_relative: false
+
+    # Imu0: Your Overridden Topic
+    imu0: /imu/data
+    imu0_config: [false, false, false, # x, y, z
+                  false, false, false, # roll, pitch, yaw
+                  false, false, false, # vx, vy, vz
+                  false, false, true,  # vroll, vpitch, vyaw (THIS IS YOUR -gy)
+                  true,  false, false] # ax (linear acceleration for better vx)
+    imu0_differential: false
+    imu0_relative: false
+    imu0_remove_gravitational_acceleration: true
+
+    # Tuning: Slightly favor IMU for rotation since wheels slip on gym floors
+    process_noise_covariance: [0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.06, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, # Yaw
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.025, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.025, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.0, 0.0, 0.0, # vyaw
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.015]
