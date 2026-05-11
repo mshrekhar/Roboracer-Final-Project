@@ -135,6 +135,8 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
+Then change the file paths in final.sh and pure pursuit node to match current directory.
+
 ---
 
 ## Quick Start
