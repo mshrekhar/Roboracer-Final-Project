@@ -37,7 +37,7 @@ A fully autonomous racing pipeline for 1/10-scale F1TENTH vehicles that requires
 | Track | Video | Foxglove |
 |-------|-------|----------|
 | Track 1 | [Video](https://drive.google.com/file/d/1HYN3x-Qh0wS01kLwBNuDhgdLquM_PSRi/view?usp=sharing) | [Foxglove](https://www.youtubeeducation.com/watch?v=6sNKPYoXPBI) |
-| Track 2 | [Video](https://drive.google.com/file/d/1Dkfw_AU1Y1vDPZ08qFdchJLDIyK-ZZMW/view?usp=sharing) | [Foxglove](https://drive.google.com/file/d/1A2atkTd6qpkxnQ-qBKz6E_uek8P20I6E/view?usp=sharing) |
+| Track 2 | [Video](https://drive.google.com/file/d/1Dkfw_AU1Y1vDPZ08qFdchJVDIyK-ZZMW/view?usp=sharing) | [Foxglove](https://drive.google.com/file/d/1A2atkTd6qpkxnQ-qBKz6E_uek8P20I6E/view?usp=sharing) |
 | Track 3 | [Video](https://drive.google.com/file/d/12nTyHf5h7Cq68dngfshzSM0Sx3hR79Vg/view?usp=sharing) | [Foxglove](https://drive.google.com/file/d/1ygJcwItUR9RrkG2Ec6uon8oMbUUrycoB/view?usp=sharing) |
 
 ---
