@@ -50,7 +50,7 @@ Autonomous racing on an unknown track is hard. Most F1TENTH implementations side
 
 ### Why It Matters
 
-Removing the dependency on prior maps is important well beyond racing. Any robot deployed in an unstructured or previously unseen environment — a collapsed building, a new warehouse floor, an unmapped road — faces the same problem. A system that can map, plan, and act entirely from scratch is fundamentally more general and more robust.
+Removing the dependency on prior maps is important well beyond racing. Any robot deployed in an unstructured or previously unseen environment such as a collapsed building, a new warehouse floor, or an unmapped road, faces the same problem. A system that can map, plan, and act entirely from scratch is fundamentally more general and more robust.
 
 ### Our Contribution
 
@@ -96,7 +96,7 @@ Phase 3 — Racing
 
 ### Wall Following
 
-A right-wall PID controller is used during the exploratory lap. Two LiDAR beams — one pointing directly right and one angled 50° forward — estimate the wall angle and project the car's distance to the wall ahead by a lookahead distance. A PID controller drives this projected distance to a setpoint, with EMA smoothing on the steering output and speed scheduling based on steering magnitude. We initially tried gap following but it required per-track tuning and produced too much oscillation for reliable SLAM; right-wall PID generalized immediately.
+A right-wall PID controller is used during the exploratory lap. Two LiDAR beams, one pointing directly right and one angled 50° forward, estimate the wall angle and project the car's distance to the wall ahead by a lookahead distance. A PID controller drives this projected distance to a setpoint, with EMA smoothing on the steering output and speed scheduling based on steering magnitude. We initially tried gap following but it required per-track tuning and produced too much oscillation for reliable SLAM; right-wall PID generalized immediately.
 
 ### SLAM
 
