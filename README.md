@@ -1,7 +1,7 @@
 # ESE6150 Final Project
 # End-to-End Autonomous Racing Pipeline for F1TENTH
 
-A fully autonomous racing pipeline for 1/10-scale F1TENTH vehicles that requires no prior map or human-assisted initialization. The system performs a single exploratory lap to build a map, automatically extracts a racing centerline, and transitions to high-speed Pure Pursuit control — all triggered from a single script.
+A fully autonomous racing pipeline for 1/10-scale F1TENTH vehicles that requires no prior map or human-assisted initialization. The system performs a single exploratory lap to build a map, automatically extracts a racing centerline, and transitions to high-speed Pure Pursuit control, all triggered from a single script.
 
 ---
 
