@@ -36,7 +36,7 @@ A fully autonomous racing pipeline for 1/10-scale F1TENTH vehicles that requires
 
 | Track | Video | Foxglove |
 |-------|-------|----------|
-| Levine | [Video](https://youtu.be/39KLCvDCAwY) | [Foxglove](https://youtu.be/6sNKPYoXPBI?si=hvWLJngvoC0-Rke_) |
+| Levine | [Video](https://youtu.be/39KLCvDCAwY) | [Foxglove](https://youtu.be/JQoCNW_JeGI) |
 | Towne | [Video & Foxglove](https://youtu.be/P-oC10r4B0A) |
 | Skirkanich | [Video & Foxglove](https://youtu.be/1X9nICsn6gU) | 
 
