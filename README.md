@@ -25,10 +25,10 @@ A fully autonomous racing pipeline for 1/10-scale F1TENTH vehicles that requires
 
 | Name | GitHub |
 |------|--------|
-| Milan Manoj | [@milanmnj](https://github.com/milanmnj) |
 | Eric Ouyang | [@eouyang](https://github.com/eouyang) |
-| Manasi Shrekhar | [@mshrek](https://github.com/mshrek) |
 | Jackson Wang | [@yxjacksn](https://github.com/yxjacksn) |
+| Manasi Shrekhar | [@mshrek](https://github.com/mshrek) |
+| Milan Manoj | [@milanmnj](https://github.com/milanmnj) |
 
 ---
 
